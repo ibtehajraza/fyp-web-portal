@@ -1,0 +1,129 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppRouter } from './../../app.routing';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
+import { Schedule } from '../.././class/Schedule';
+import { Scheduler } from 'rxjs/Scheduler';
+// import { AngularFireAuth , AngularFireAuthModule } from 'angularfire2/auth';
+// import {AngularFireModule} from 'angularfire2';
+// // import { Observable } from 'rxjs/Observable';
+// import * as firebase from 'firebase/app';
+
+@Component({
+  selector: 'app-addmeeting',
+  templateUrl: './addmeeting.component.html',
+  styleUrls: ['./addmeeting.component.css']
+})
+export class AddmeetingComponent implements OnInit {
+
+  items: Observable<any[]>;
+  test = '';
+  trileItem: Observable<any[]>;
+  itemRef: AngularFireObject<any>;
+  itemRefL: AngularFireList<any>;
+
+  schedule: AngularFireObject<Schedule>;
+  allSchedule: AngularFireObject<Schedule[]>;
+  path = 'Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2';
+
+name: string;
+
+
+  testSchedule: Schedule[];
+  monSchedule: Schedule[];
+  tueSchedule: Schedule[];
+  wedSchedule: Schedule[];
+  thuSchedule: Schedule[];
+  friSchedule: Schedule[];
+  satSchedule: Schedule[];
+  sch: Schedule;
+
+
+  constructor(public db: AngularFireDatabase) { }
+
+  ngOnInit() {
+    this.items = this.db.list('Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2').valueChanges();
+    // this.tempDocArr = new Array();
+    this.testSchedule = new Array();
+    this.monSchedule = new Array();
+    this.tueSchedule = new Array();
+    this.wedSchedule = new Array();
+    this.thuSchedule = new Array();
+    this.friSchedule = new Array();
+    this.satSchedule = new Array();
+    this.getSchedule();
+  }
+
+  getSchedule() {
+    this.db.object(this.path).snapshotChanges()
+      .subscribe(
+        data => {
+          data.payload.forEach(
+            scheduleValue => {
+              this.testSchedule.push(scheduleValue.val());
+              console.log(scheduleValue.val());
+              return false;
+            }
+          );
+          console.log( '-- LENGTH==>' + this.testSchedule.length);
+          this.divideAndConquir();
+        }
+      );
+
+  }
+
+  divideAndConquir() {
+    this.testSchedule.forEach(
+      schedule => {
+        if (schedule.day === 'monday') {
+          this.monSchedule.push(schedule);
+        }
+        if (schedule.day === 'tuesday') {
+          this.tueSchedule.push(schedule);
+        }
+        if (schedule.day === 'wednesday') {
+          this.wedSchedule.push(schedule);
+        }
+        if (schedule.day === 'thursday') {
+          this.thuSchedule.push(schedule);
+        }
+        if (schedule.day === 'friday') {
+          this.friSchedule.push(schedule);
+        }
+        if (schedule.day === 'saturday') {
+          this.satSchedule.push(schedule);
+        }
+
+    });
+  }
+
+  getColor() {
+
+    const styles = {
+      // CSS property names
+      'background-color':  '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6),     // italic
+      // 'font-weight': this.anotherProperty ? 'bold'   : 'normal',  // normal
+  };
+
+  return styles;
+  }
+
+  addSchedule() {
+    const newSchedule: Schedule = {
+      day: 'monday',
+    brick: 'GI',
+    docName: 'Dr. Jhangeer Jatoi',
+    docArea: 'Nipa',
+    docContact: '090078601',
+    docId: 'GDSGA45465NBJ52',
+    docSpecialization: 'Neurosurgen',
+    tom: '20180515 19:50',
+    gps: '24.336, 16.444',
+    };
+    const itemRef = this.db.list('Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2');
+    // itemRef.set(newSchedule);
+    itemRef.push(newSchedule);
+  }
+
+}

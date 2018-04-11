@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -17,4 +17,24 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
+ -->
+<div *ngIf="isAuth">
+  <div class="topnav" id="myTopnav">
+    <a routerLink="/home" class="active">Salesman</a>
+    <a routerLink="/doctor">Doctor</a>
+    <!--<a href="#contact">Schedules</a>-->
+    <a routerLink="/addmeeting">Add Meetings</a>
+    <a routerLink="/addschedule">See Schedule</a>
+    <a href="#">Analysis</a>
+<button type="button" class="btn btn-warning" (click)="onChange()"> LogOut</button>
+  
+  </div>
 
+</div>
+
+<!-- <button type="button" class="btn btn-primary" (click)="onChange()"> LogOut</button> -->
+ <!-- <app-navbar></app-navbar>
+ <app-doctor></app-doctor> -->
+
+ <router-outlet></router-outlet>
+ 

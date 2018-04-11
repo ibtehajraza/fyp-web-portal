@@ -1,0 +1,30 @@
+<!-- <p>
+  doctor works!
+</p> -->
+<a routerLink='/adddoctor' >
+<!--<button (click)="save(key.value)" class="btn btn-primary"> Add </button>-->
+</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Specialization</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Area</th>
+      <!--<th scope="col">Meeeting</th>-->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let var2 of Doctor | async; let index = index">
+     <!-- <input type="text" #updatetext [value]="var2.text" />-->
+      <th scope="row">{{index+1}}</th>
+      <td>{{var2.name}}</td>
+      <td>{{var2.specialization}}</td>
+      <td>{{var2.contact}}</td>
+      <td>{{var2.area}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="onDelete(var2.key)"> Remove</button></td>
+      <!--<td><button type="button" class="btn btn-primary" (click)="onEdit(var2.key, updatetext.value)"> Edit</button></td>-->
+    </tr>
+  </tbody>
+</table>

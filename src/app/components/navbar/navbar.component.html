@@ -1,0 +1,42 @@
+<!--<div class="topnav" id="myTopnav">
+ 
+  <a routerLink="/navbar" class="active">Salesman</a>
+  <a routerLink="/doctor">Doctor</a>
+  <a href="#contact">Schedules</a>
+  <a href="#about">Tracking</a>
+  <a href="#">Analysis</a>
+</div>-->
+
+<!--checking: test-->
+<!-- <ul>
+  <li class="text" *ngFor="let var1 of salesMan | async">
+    {{var1.name}}
+    {{var1.email}}
+    {{var1.phoneNo}}
+    {{var1.area}}
+  </li>
+</ul> -->
+
+<!--table of salesMan where data will come from firebase-->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone #</th>
+      <th scope="col">Area</th>
+      <!--<th scope="col">Meeeting</th>-->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let var1 of salesMan | async; let index = index">
+      <th scope="row">{{index+1}}</th>
+      <td>{{var1.name}}</td>
+      <td>{{var1.email}}</td>
+      <td>{{var1.contact}}</td>
+      <td>{{var1.area}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="onDelete(var1.key)"> Remove</button></td>
+    </tr>
+  </tbody>
+</table>

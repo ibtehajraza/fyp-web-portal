@@ -1,0 +1,36 @@
+<!-- <p>
+  login works!
+</p> -->
+
+<!--Google Font - Work Sans-->
+<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+<div class="container body1">
+  <div class="profile">
+    <button class="profile__avatar" id="toggleProfile">
+     <!-- <img src="https://pbs.twimg.com/profile_images/554631714970955776/uzPxPPtr.jpeg" alt="Avatar" />  -->
+     <img src="https://img-android.lisisoft.com/imgmic/8/6/3568-i-com.janiapps.fingerprint.lockscreen.jpg" alt="Avatar" />
+     
+    </button>
+    <div class="profile__form">
+      <div class="profile__fields">
+        <div class="field">
+          <input [(ngModel)]="email" type="text" id="fieldUser" class="input" required pattern=.*\S.* />
+          <label  for="fieldUser" class="label">Email</label>
+        </div>
+        <div class="field">
+          <input [(ngModel)]="password" type="password" id="fieldPassword" class="input" required pattern=.*\S.* />
+          <label for="fieldPassword" class="label">Password</label>
+        </div>
+        <div class="profile__footer">
+          <button class="btn" (click)="login()" *ngIf="!(user | async)?.uid">Login</button>
+        </div>
+      </div>
+      <div *ngIf="alert">
+        <p style="color:#f00 ; margin-top:0.5em;">
+          {{errorMessage}}
+        </p>
+      </div>
+     </div>
+  </div>
+</div>

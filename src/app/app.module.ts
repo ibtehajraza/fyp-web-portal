@@ -1,16 +1,62 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+
+import 'hammerjs';
+import { MatCardModule, MatFormFieldModule, MatButtonModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+// firebase configuration
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { DoctorComponent } from './components/doctor/doctor.component';
+import { AppRouter } from './app.routing';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { Router } from '@angular/router';
+import { AddscheduleComponent } from './components/addschedule/addschedule.component';
+import { AddmeetingComponent } from './components/addmeeting/addmeeting.component';
+
+// import { AdddoctorComponent } from './components/adddoctor/adddoctor.component';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    DoctorComponent,
+    LoginComponent,
+    SignupComponent,
+    AddscheduleComponent,
+    AddmeetingComponent
+   // AdddoctorComponent,
+
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase, 'pharma3'),
+    AngularFireDatabaseModule,
+    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule,
+    AppRouter, HttpModule , FormsModule,
+    MatCardModule, MatFormFieldModule, MatButtonModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
