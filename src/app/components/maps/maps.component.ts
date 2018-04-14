@@ -48,7 +48,7 @@ export class MapsComponent implements OnInit {
     {
       lat: 24.95243,
       lng:  67.07693,
-      label: 'Dr.Asim',
+      label: 'Dr.AAA',
       infoText: 'NAME: Dr.Asim\nAddress:28-DC\nTimeOfMeeting:5.25',
       draggable: true
     },
