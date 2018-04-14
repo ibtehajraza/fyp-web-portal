@@ -1,5 +1,4 @@
 
-
 <div class="container">
 <div class="left-div">
   <div id="monday">
@@ -159,15 +158,15 @@
   </div>
 
 </div>
-
-  <div id="add-meeting">
-  <form action="">
+<!--Right-->
+  <div class="add-meeting">
+  <!-- <form action="">
     <div class="row">
       <div class="col-25">
         <label for="fname">Doctor Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="firstname" placeholder="">
+        <input type="text" id="fname" name="firstname" [(ngModel)]="drname"  placeholder="">
       </div>
     </div>
     <div class="row">
@@ -175,7 +174,7 @@
         <label for="lname">Doctor Area</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="lastname" placeholder="">
+        <input type="text" id="lname" name="lastname"  [(ngModel)]="drarea" placeholder="">
       </div>
     </div>
 
@@ -184,7 +183,7 @@
         <label for="lname">Doctor Specialization</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="lastname" placeholder="">
+        <input type="text" id="lname" name="lastname"  [(ngModel)]="drspec" placeholder="">
       </div>
     </div>
 
@@ -210,14 +209,82 @@
         <label for="lname">Time of meeting</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="lastname" placeholder="">
+        <input type="text" id="lname" name="lastname"  [(ngModel)]="drtom" placeholder="">
       </div>
     </div>
     <div class="row">
-      <button (click)="addSchedule()">aaaa</button>
+      <button (click)="addSchedule()">Done</button>
     </div>
-  </form>
+  </form> -->
+
+  <!-- <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Dr. Name" value="Sushi">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Time of Meeting"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Dr. Address"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Dr. Specialization"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Select Days">
+        <mat-option *ngFor="let food of days" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form> -->
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Dr. Name">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea matInput placeholder="Dr. Area"></textarea>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <textarea matInput placeholder="Dr. Specialization"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Time of Meeting"></textarea>
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <mat-select placeholder="Select">
+        <mat-option value="option">Option</mat-option>
+        <mat-option value="monday">Monday</mat-option>
+        <mat-option value="tuesday">Tuesday</mat-option>
+        <mat-option value="wednesday">Wednesday</mat-option>
+        <mat-option value="thursday">Thursday</mat-option>
+        <mat-option value="friday">Friday</mat-option>
+        <mat-option value="saturday">Saturday</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <mat-select placeholder="Select Days">
+        <mat-option *ngFor="let food of days" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+  <button mat-button (click)="addSchedule()">Submit</button>
+  </div>
   </div>
 
 
+
 </div>
+

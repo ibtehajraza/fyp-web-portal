@@ -5,10 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
 import { Schedule } from '../.././class/Schedule';
 import { Scheduler } from 'rxjs/Scheduler';
+
 // import { AngularFireAuth , AngularFireAuthModule } from 'angularfire2/auth';
 // import {AngularFireModule} from 'angularfire2';
 // // import { Observable } from 'rxjs/Observable';
 // import * as firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-addmeeting',
@@ -27,8 +29,11 @@ export class AddmeetingComponent implements OnInit {
   allSchedule: AngularFireObject<Schedule[]>;
   path = 'Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2';
 
-name: string;
-
+  drname: string;
+  drarea: string;
+  drspec: string;
+  drtom: string;
+  drday: string;
 
   testSchedule: Schedule[];
   monSchedule: Schedule[];
@@ -38,8 +43,22 @@ name: string;
   friSchedule: Schedule[];
   satSchedule: Schedule[];
   sch: Schedule;
+  //days: any;
+  // days = [
+  //   {value: 'monday-0', viewValue: 'Monday'},
+  //   {value: 'tuesday-1', viewValue: 'Tuesday'},
+  //   {value: 'wednesday-2', viewValue: 'Wednesday'},
+  //   {value: 'thursday-3', viewValue: 'Thursday'},
+  //   {value: 'friday-4', viewValue: 'Friday'},
+  //   {value: 'saturday-5', viewValue: 'Saturday'}
+  // ];
 
-
+  foods = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
+  
   constructor(public db: AngularFireDatabase) { }
 
   ngOnInit() {
@@ -52,6 +71,14 @@ name: string;
     this.thuSchedule = new Array();
     this.friSchedule = new Array();
     this.satSchedule = new Array();
+    // this.days = [
+    //   {value: 'monday', viewValue: 'Monday'},
+    //   {value: 'tuesday', viewValue: 'Tuesday'},
+    //   {value: 'wednesday', viewValue: 'Wednesday'},
+    //   {value: 'thursday', viewValue: 'Thursday'},
+    //   {value: 'friday', viewValue: 'Friday'},
+    //   {value: 'saturday', viewValue: 'Saturday'}
+    // ];
     this.getSchedule();
   }
 
@@ -111,19 +138,20 @@ name: string;
 
   addSchedule() {
     const newSchedule: Schedule = {
-      day: 'monday',
-    brick: 'GI',
-    docName: 'Dr. Jhangeer Jatoi',
-    docArea: 'Nipa',
-    docContact: '090078601',
-    docId: 'GDSGA45465NBJ52',
-    docSpecialization: 'Neurosurgen',
-    tom: '20180515 19:50',
-    gps: '24.336, 16.444',
-    };
-    const itemRef = this.db.list('Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2');
+       day: 'days',
+       brick: 'zzz',
+       docName: this.drname,
+       docArea: 'drarea',
+       docContact: '090078601',
+       docId: 'GDSGA45465NBJ52',
+       docSpecialization: 'drspec',
+       tom: 'drtom',
+       gps: '24.336, 16.444',
+      };
+       const itemRef = this.db.list('Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2');
     // itemRef.set(newSchedule);
     itemRef.push(newSchedule);
+    //console.log(this.drname);
   }
 
 }

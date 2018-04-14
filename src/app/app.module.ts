@@ -9,8 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import 'hammerjs';
-import { MatCardModule, MatFormFieldModule, MatButtonModule } from '@angular/material';
-
+import { MatCardModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatSelectModule, MatExpansionModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -27,9 +26,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { Router } from '@angular/router';
 import { AddscheduleComponent } from './components/addschedule/addschedule.component';
 import { AddmeetingComponent } from './components/addmeeting/addmeeting.component';
+import { MapsComponent } from './components/maps/maps.component';
+import { AgmCoreModule } from '@agm/core';
 
 // import { AdddoctorComponent } from './components/adddoctor/adddoctor.component';
-
 
 
 
@@ -41,7 +41,8 @@ import { AddmeetingComponent } from './components/addmeeting/addmeeting.componen
     LoginComponent,
     SignupComponent,
     AddscheduleComponent,
-    AddmeetingComponent
+    AddmeetingComponent,
+    MapsComponent
    // AdddoctorComponent,
 
 
@@ -54,7 +55,15 @@ import { AddmeetingComponent } from './components/addmeeting/addmeeting.componen
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule,
     AppRouter, HttpModule , FormsModule,
-    MatCardModule, MatFormFieldModule, MatButtonModule
+    MatCardModule, MatFormFieldModule, MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatExpansionModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsKey
+    })
 
 
   ],
