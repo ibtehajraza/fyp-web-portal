@@ -12,5 +12,8 @@ export const environment = {
     projectId: 'init-project-01',
     storageBucket: 'init-project-01.appspot.com',
     messagingSenderId: '1041920183387'
-  }
+
+  },
+  
+  googleMapsKey: 'AIzaSyDCXRMPvCtqqew_hhSyR8q6gP8RxIVnXLk'
 };
