@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-//declare const google: any;
+// declare const google: any;
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
@@ -10,12 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class MapsComponent implements OnInit {
 
 
-  title: string = 'Salesman Pin Locations';
-  lat: number = 24.95243;
-  lng: number = 67.07693;
-  zoom: number = 8;
-
-
+  title = 'Salesman Pin Locations';
+  lat = 24.95243;
+  lng = 67.07693;
+  zoom = 8;
 
 
   constructor() {
@@ -28,7 +26,7 @@ export class MapsComponent implements OnInit {
   }
 
   clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
+    console.log(`clicked the marker: ${label || index}`);
     // this.infoWindowText=`clicked the marker: ${label || index}`;
   }
 
@@ -40,11 +38,11 @@ export class MapsComponent implements OnInit {
   //   });
   // }
 
-  markerDragEnd(m: marker, $event: MouseEvent) {
+  markerDragEnd(m: Marker, $event: MouseEvent) {
     console.log('dragEnd', m, $event);
   }
 
-  markers: marker[] = [
+  markers: Marker[] = [
     {
       lat: 24.95243,
       lng:  67.07693,
@@ -66,11 +64,11 @@ export class MapsComponent implements OnInit {
       infoText: 'NAME: Dr.Bilal\nAddress:28-DC\nTimeOfMeeting:5.25',
       draggable: true
     }
-  ]
+  ];
 }
 
 // just an interface for type safety.
-interface marker {
+interface Marker {
   lat: number;
   lng: number;
   label?: string;
