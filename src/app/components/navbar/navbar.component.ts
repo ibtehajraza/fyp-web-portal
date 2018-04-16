@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { DataService } from '../../data.service';
 import { AppRouter } from './../../app.routing';
 
 @Component({
@@ -14,11 +15,12 @@ import { AppRouter } from './../../app.routing';
 export class NavbarComponent implements OnInit {
 
 
-  //panelOpenState: boolean = false;
+  // panelOpenState: boolean = false;
   salesmanRef: AngularFireList<any>;
   salesMan: Observable<any[]>;
+  userKey: string;
 
-  constructor(db: AngularFireDatabase,  public router: Router) {
+  constructor(db: AngularFireDatabase,  private router: Router, private data: DataService) {
     this.salesmanRef = db.list('SalesMan');
     // Use snapshotChanges().map() to store the key
     this.salesMan = this.salesmanRef.snapshotChanges().map(changes => {
@@ -26,19 +28,17 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  onDelete(key: string)
-  {
+  ngOnInit() {
+  }
+
+  onDelete(key: string) {
     this.salesmanRef.remove(key);
     // this.salesMan.remove
     // this.salesMan.$key
   }
 
-
-  ngOnInit() {
-    
-  }
-  onlocationClick()
-  {
-    this.router.navigate(['maps'])
+  onlocationClick(key: string) {
+    this.data.setUserIdForLocation(key);
+    this.router.navigate(['maps']);
   }
 }

@@ -43,7 +43,7 @@ export class AddmeetingComponent implements OnInit {
   friSchedule: Schedule[];
   satSchedule: Schedule[];
   sch: Schedule;
-  //days: any;
+  // days: any;
   // days = [
   //   {value: 'monday-0', viewValue: 'Monday'},
   //   {value: 'tuesday-1', viewValue: 'Tuesday'},
@@ -58,7 +58,7 @@ export class AddmeetingComponent implements OnInit {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
-  
+
   constructor(public db: AngularFireDatabase) { }
 
   ngOnInit() {
@@ -151,7 +151,7 @@ export class AddmeetingComponent implements OnInit {
        const itemRef = this.db.list('Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2');
     // itemRef.set(newSchedule);
     itemRef.push(newSchedule);
-    //console.log(this.drname);
+    // console.log(this.drname);
   }
 
 }
