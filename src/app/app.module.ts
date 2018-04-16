@@ -30,6 +30,7 @@ import { MapsComponent } from './components/maps/maps.component';
 import { AgmCoreModule } from '@agm/core';
 
 // import { AdddoctorComponent } from './components/adddoctor/adddoctor.component';
+import { DataService } from '../app/data.service';
 
 
 
@@ -67,7 +68,7 @@ import { AgmCoreModule } from '@agm/core';
 
 
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

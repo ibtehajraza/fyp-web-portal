@@ -3,7 +3,7 @@
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map> -->
 
-<div class="main-container">
+<div class="main-container" >
   <div class="header">
     <p>This is the header div</p>
   </div>
@@ -16,7 +16,7 @@
     [longitude]="lng" 
     [zoom]="zoom" 
     [disableDefaultUI]="false" 
-    [zoomControl]="false" 
+    [zoomControl]="true" 
     (mapClick)="mapClicked($event)">
 
       <agm-marker *ngFor="let m of markers; let i = index" 
