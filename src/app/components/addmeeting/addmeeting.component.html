@@ -246,19 +246,23 @@
   <h4>Add Meetings</h4>
   <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Dr. Name">
-    </mat-form-field>
-  
-    <mat-form-field>
-      <textarea matInput placeholder="Dr. Area"></textarea>
-    </mat-form-field>
-    
-    <mat-form-field>
-      <textarea matInput placeholder="Dr. Specialization"></textarea>
+      <input matInput placeholder="Docter Name" [(ngModel)]='drname'>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput placeholder="Time of Meeting"></textarea>
+      <input matInput placeholder="Contact Info" [(ngModel)]='contactInfo'>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea matInput placeholder="Docter Area" [(ngModel)]='drarea'></textarea>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <textarea matInput placeholder="Docter Specialization" [(ngModel)]='drspec'></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Time of Meeting" [(ngModel)]='drtom'></textarea>
     </mat-form-field>
 
     <!-- <mat-form-field>
@@ -280,7 +284,7 @@
     </mat-form-field> -->
 
     <select class='select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onOptionsSelected($event)'>
-        <option class='option' *ngFor='let option of options' [value]="option">{{option.viewValue}}</option>
+        <option class='option' *ngFor='let option of options' [value]="option">{{option}}</option>
     </select> 
     <br/>
   <button mat-button (click)="addSchedule()">Submit</button>

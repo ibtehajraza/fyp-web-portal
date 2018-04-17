@@ -28,6 +28,7 @@ import { AddscheduleComponent } from './components/addschedule/addschedule.compo
 import { AddmeetingComponent } from './components/addmeeting/addmeeting.component';
 import { MapsComponent } from './components/maps/maps.component';
 import { AgmCoreModule } from '@agm/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { AdddoctorComponent } from './components/adddoctor/adddoctor.component';
 import { DataService } from '../app/data.service';
@@ -62,6 +63,7 @@ import { DataService } from '../app/data.service';
     MatFormFieldModule,
     MatButtonModule,
     MatExpansionModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
     })
