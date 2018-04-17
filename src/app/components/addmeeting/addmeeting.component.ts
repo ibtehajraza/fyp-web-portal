@@ -34,7 +34,9 @@ export class AddmeetingComponent implements OnInit {
   drspec: string;
   drtom: string;
   drday: string;
-
+  contactInfo: string;
+  schedulingDay: string;
+  
   testSchedule: Schedule[];
   monSchedule: Schedule[];
   tueSchedule: Schedule[];
@@ -58,7 +60,7 @@ export class AddmeetingComponent implements OnInit {
   //   {value: 'pizza-1', viewValue: 'Pizza'},
   //   {value: 'tacos-2', viewValue: 'Tacos'}
   // ];
-
+/*
   options = [
       {value: 'monday-0', viewValue: 'Monday'},
       {value: 'tuesday-1', viewValue: 'Tuesday'},
@@ -66,7 +68,9 @@ export class AddmeetingComponent implements OnInit {
       {value: 'thursday-3', viewValue: 'Thursday'},
       {value: 'friday-4', viewValue: 'Friday'},
       {value: 'saturday-5', viewValue: 'Saturday'}
-  ];
+  ];*/
+
+  options = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
   optionSelected: any;
 
   constructor(public db: AngularFireDatabase) { }
@@ -81,6 +85,7 @@ export class AddmeetingComponent implements OnInit {
     this.thuSchedule = new Array();
     this.friSchedule = new Array();
     this.satSchedule = new Array();
+    // this.drname = "Dr. Bilal"/;
     // this.days = [
     //   {value: 'monday', viewValue: 'Monday'},
     //   {value: 'tuesday', viewValue: 'Tuesday'},
@@ -146,22 +151,35 @@ export class AddmeetingComponent implements OnInit {
   return styles;
   }
 
+
+  onOptionsSelected(event){
+    console.log(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(1, 15)); //option value will be sent as event
+    this.schedulingDay = event.toString().toLowerCase();
+    console.log(this.schedulingDay); //option value will be sent as event
+    
+   }
+
   addSchedule() {
+    const tempString = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(1, 15);
     const newSchedule: Schedule = {
-       day: 'days',
+       day: this.schedulingDay,
        brick: 'zzz',
        docName: this.drname,
-       docArea: 'drarea',
-       docContact: '090078601',
-       docId: 'GDSGA45465NBJ52',
-       docSpecialization: 'drspec',
-       tom: 'drtom',
+       docArea: this.drarea,
+       docContact: this.contactInfo,
+       docId: tempString,
+       docSpecialization:  this.drspec,
+       tom: this.drtom,
        gps: '24.336, 16.444',
       };
        const itemRef = this.db.list('Schedule//dVJADHQ2rDflxtuNjAmY1hh7wGy2');
     // itemRef.set(newSchedule);
     itemRef.push(newSchedule);
-    // console.log(this.drname);
+    //  console.log(this.drname);
+    //  console.log(this.drarea);
+    //  console.log(this.drspec);
+    //  console.log(this.drtom);
+    //  console.log(this.optionSelected);
   }
 
 }
