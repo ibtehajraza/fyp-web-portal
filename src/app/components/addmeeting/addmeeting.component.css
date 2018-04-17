@@ -17,18 +17,34 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     margin-left: 0%;
-    /* overflow-y: scroll; */
+    /* overflow: scroll; */
+    overflow-y: scroll;
+    height:100vh;
+    
+    
   }
 
   .add-meeting{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     box-sizing: auto;
-    width: 453px;
-    height: 740px;
+    width: 455px;
+    height: 738px;
     padding: 15px;    
-    border: 4px solid blue;
+    border: 4px solid crimson;
     margin-left: 0.5px;
+    background-image: url("./../../images/images6.png");
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 99%;
 
+  }
+
+  .add-meeting h4{
+    text-align: center;
+    text-justify: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #d1d5db;
+    height: 10%;
   }
   
   .example-header-image {

@@ -234,6 +234,7 @@
       <textarea matInput placeholder="Dr. Specialization"></textarea>
     </mat-form-field>
 
+    
     <mat-form-field>
       <mat-select placeholder="Select Days">
         <mat-option *ngFor="let food of days" [value]="food.value">
@@ -242,6 +243,7 @@
       </mat-select>
     </mat-form-field>
   </form> -->
+  <h4>Add Meetings</h4>
   <div class="example-container">
     <mat-form-field>
       <input matInput placeholder="Dr. Name">
@@ -271,15 +273,16 @@
       </mat-select>
     </mat-form-field> -->
 
-    <mat-form-field>
-      <mat-select placeholder="Select Days">
-        <mat-option *ngFor="let food of days" [value]="food.value">
-          {{ food.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <!-- <mat-form-field>
+       <mat-select placeholder="Select Days" required [(ngModel)]='optionSelected' (ngModelChange)='onOptionsSelected($event)'>
+        <mat-option *ngFor='let food of days' [value]="food">  {{ food.viewValue }} </mat-option>
+      </mat-select> 
+    </mat-form-field> -->
 
-
+    <select class='select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onOptionsSelected($event)'>
+        <option class='option' *ngFor='let option of options' [value]="option">{{option.viewValue}}</option>
+    </select> 
+    <br/>
   <button mat-button (click)="addSchedule()">Submit</button>
   </div>
   </div>

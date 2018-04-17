@@ -53,11 +53,21 @@ export class AddmeetingComponent implements OnInit {
   //   {value: 'saturday-5', viewValue: 'Saturday'}
   // ];
 
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+  // foods = [
+  //   {value: 'steak-0', viewValue: 'Steak'},
+  //   {value: 'pizza-1', viewValue: 'Pizza'},
+  //   {value: 'tacos-2', viewValue: 'Tacos'}
+  // ];
+
+  options = [
+      {value: 'monday-0', viewValue: 'Monday'},
+      {value: 'tuesday-1', viewValue: 'Tuesday'},
+      {value: 'wednesday-2', viewValue: 'Wednesday'},
+      {value: 'thursday-3', viewValue: 'Thursday'},
+      {value: 'friday-4', viewValue: 'Friday'},
+      {value: 'saturday-5', viewValue: 'Saturday'}
   ];
+  optionSelected: any;
 
   constructor(public db: AngularFireDatabase) { }
 
