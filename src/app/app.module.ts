@@ -11,9 +11,9 @@ import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
 // Import for material components
 import { MatCardModule, MatFormFieldModule, 
-  MatButtonModule, MatInputModule, 
-  MatSelectModule,MatGridListModule, 
-  MatListModule, MatExpansionModule, MatDialogModule } from '@angular/material';
+  MatButtonModule, MatInputModule, MatChipsModule,
+  MatSelectModule,MatGridListModule, MatToolbarModule,
+  MatListModule, MatExpansionModule, MatDialogModule, MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -65,10 +65,11 @@ import { DataService } from '../app/data.service';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatButtonModule,
+    MatButtonModule, MatToolbarModule,
     MatExpansionModule,
     BrowserAnimationsModule, MatDialogModule,
     MatListModule,
+    MatIconModule, MatChipsModule
     MatGridListModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey

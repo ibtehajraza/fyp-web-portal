@@ -18,20 +18,32 @@
   </li>
 </ul>
  -->
-<div *ngIf="isAuth">
+<!-- <div *ngIf="isAuth">
   <div class="topnav" id="myTopnav">
     <a routerLink="/home" class="active">Salesman</a>
     <a routerLink="/doctor">Doctor</a>
-    <!--<a href="#contact">Schedules</a>-->
+    <a href="#contact">Schedules</a>
     <a routerLink="/addmeeting">Add Meetings</a>
     <a routerLink="/addschedule">See Schedule</a>
-    <!-- <a routerLink="/maps">Locations</a> -->
-    <!-- <a href="#">Analysis</a> -->
+    <a routerLink="/maps">Locations</a> -->
+    <!-- <a href="#">Analysis</a> 
 <button type="button" id="demo1" class="btn btn-warning" (click)="onChange()"> LogOut</button>
   
   </div>
 
-</div>
+</div> -->
+
+<mat-toolbar color="primary" *ngIf="isAuth">
+  <mat-toolbar-row>
+    <!-- <div class="mylogo1"></div> -->
+    <button mat-button routerLink="/home">Salesman</button>
+    <button mat-button routerLink="/doctor">Doctor</button>
+    <button mat-button routerLink="/addmeeting">Add Schedule</button>
+    <button mat-button routerLink="/addschedule">Connectify</button>
+    <button mat-button (click)="onChange()" class="mylogout">Logout</button>
+  </mat-toolbar-row>
+
+</mat-toolbar>
 
 <!-- <button type="button" class="btn btn-primary" (click)="onChange()"> LogOut</button> -->
  <!-- <app-navbar></app-navbar>
