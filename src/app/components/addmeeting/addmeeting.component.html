@@ -13,8 +13,10 @@
             </tr>
           </thead>
         </table>
-    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of monSchedule">
+    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of monday | async; let index = index">
+      <img src="../../../assets/image/close.png" style=" margin-left:85%;" (click) = 'onDelete(schedule.key)' alt="Delete Button">        
       <mat-card-header>
+        {{index}}
         <mat-card-title>{{schedule.docName}}</mat-card-title>
         <mat-card-subtitle style="color:aliceblue;">{{schedule.tom}}</mat-card-subtitle>
       </mat-card-header>
@@ -40,7 +42,8 @@
             </tr>
           </thead>
         </table>
-    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of tueSchedule">
+    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of tuesday | async; let index = index">
+        <img src="../../../assets/image/close.png" style=" margin-left:85%;" (click) = 'onDelete(schedule.key)' alt="Delete Button">              
       <mat-card-header>
         <mat-card-title>{{schedule.docName}}</mat-card-title>
         <mat-card-subtitle style="color:aliceblue;">{{schedule.tom}}</mat-card-subtitle>
@@ -66,7 +69,9 @@
             </tr>
           </thead>
         </table>
-    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of wedSchedule">
+    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of wednesday | async; let index = index">
+        <img src="../../../assets/image/close.png" style=" margin-left:85%;" (click) = 'onDelete(schedule.key)' alt="Delete Button">        
+      
       <mat-card-header>
         <mat-card-title>{{schedule.docName}}</mat-card-title>
         <mat-card-subtitle style="color:aliceblue;">{{schedule.tom}}</mat-card-subtitle>
@@ -92,7 +97,8 @@
             </tr>
           </thead>
         </table>
-    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of thuSchedule">
+    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of thursday | async; let index = index">
+        <img src="../../../assets/image/close.png" style=" margin-left:85%;" (click) = 'onDelete(schedule.key)' alt="Delete Button">
       <mat-card-header>
         <mat-card-title>{{schedule.docName}}</mat-card-title>
         <mat-card-subtitle style="color:aliceblue;">{{schedule.tom}}</mat-card-subtitle>
@@ -117,7 +123,8 @@
             </tr>
           </thead>
         </table>
-    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of friSchedule">
+    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of friday | async; let index = index">
+        <img src="../../../assets/image/close.png" style=" margin-left:85%;" (click) = 'onDelete(schedule.key)' alt="Delete Button">      
       <mat-card-header>
         <mat-card-title>{{schedule.docName}}</mat-card-title>
         <mat-card-subtitle style="color:aliceblue;">{{schedule.tom}}</mat-card-subtitle>
@@ -143,7 +150,8 @@
             </tr>
           </thead>
         </table>
-    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of satSchedule">
+    <mat-card class=" card" [ngStyle]="getColor()" *ngFor="let schedule of saturday | async; let index = index">
+        <img src="../../../assets/image/close.png" style=" margin-left:85%;" (click) = 'onDelete(schedule.key)' alt="Delete Button">      
       <mat-card-header>
         <mat-card-title>{{schedule.docName}}</mat-card-title>
         <mat-card-subtitle style="color:aliceblue;">{{schedule.tom}}</mat-card-subtitle>
@@ -294,4 +302,3 @@
 
 
 </div>
-
